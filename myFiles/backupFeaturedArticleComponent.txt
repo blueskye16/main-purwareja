@@ -1,0 +1,29 @@
+    public function test_admin_can_create_a_post(): void
+{
+    // Create a user and authenticate
+    $user = User::factory()->create(); // This should create a single user
+    $this->actingAs($user); // This should be a single user instance
+
+    // Access the create post form
+    $response = $this->get('dashboard/posts/create');
+    $response->assertStatus(200); // Check if the response is successful
+
+    // Now submit the post data
+    $response = $this->post('dashboard/posts', [
+        'user_id' => '1',
+        'title' => 'Test Post',
+        'slug' => 'test post slug',
+        'body' => 'This is the body of the post.',
+        'category_id' => 1, // Adjust this according to your categories
+        // Include any other fields required by your Post model
+    ]);
+
+    // Check if the response redirects after the post creation
+    $response->assertRedirect('/dashboard/posts'); // Adjust the redirect route as needed
+
+    // Verify that the post was created in the database
+    $this->assertDatabaseHas('posts', [
+        'title' => 'Test Post',
+        'body' => 'This is the body of the post.'
+    ]);
+}

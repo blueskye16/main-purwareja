@@ -1,0 +1,18 @@
+<div class="mb-2">
+    <p>Choose role for admin</p>
+    <div class="flex">
+        <label for="role_1"
+            class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700 w-[50%] m-2 ml-0 cursor-pointer">
+            <input id="role_1" type="radio" value="1" name="is_admin"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <span class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Super
+                Admin</span>
+        </label>
+        <label for="role_0"
+            class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700 w-[50%] m-2 mr-0 cursor-pointer">
+            <input id="role_0" type="radio" value="0" name="is_admin"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <span class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Admin</span>
+        </label>
+    </div>
+</div>

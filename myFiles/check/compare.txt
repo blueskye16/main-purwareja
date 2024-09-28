@@ -1,0 +1,1 @@
+    <x-home.featured-articles :featured-posts="$featuredPosts"></x-home.featured-articles>
