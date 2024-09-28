@@ -5,12 +5,13 @@ use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NavItemsController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\PostsController;
 use App\Http\Controllers\Dashboard\AdminUsersController;
 use App\Http\Controllers\Dashboard\AdminCategoryController;
-use App\Http\Controllers\Dashboard\AdminFeaturedPostsController;
 use App\Http\Controllers\Dashboard\DashboardPostController;
+use App\Http\Controllers\Dashboard\AdminFeaturedPostsController;
 
 //HOME
 route::get('/', [HomeController::class, 'index'])->name('home');
@@ -49,6 +50,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 
 //admin users
 Route::resource('/dashboard/users', AdminUsersController::class)->except('show')->middleware('admin');
+
+Route::resource('/dashboard/navigasi', NavItemsController::class);
 
 // manage post
 Route::group(['prefix' => 'dashboard/manage-posts', 'middleware' => 'admin'], function () {
